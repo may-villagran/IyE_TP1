@@ -12,7 +12,7 @@
 % Datos del informe
 \title{Inferencia Y Estimación}
 \title{Título del Informe}
-\author{Catalina Hirsch - 36557 \\ Clara Zavaroni - legajo \\ Maylen Antonella Villagran Cardozo - legajo \\ \\ Universidad de San Andrés}
+\author{Catalina Hirsch - 36557 \\ Clara Zavaroni Benoit - 36772 \\ Maylen Antonella Villagran Cardozo - legajo \\ \\ Universidad de San Andrés}
 \date{\today}
 
 \begin{document}
@@ -34,6 +34,30 @@ En primer lugar, se cargan las imágenes y se convierten a escala de grises. Lue
 contiguos verticalmente. A continuación, se calcula la correlación entre los píxeles de cada bloque y se almacena en un vector.
 Finalmente, se realiza un gráfico de dispersión de las correlaciones obtenidas para cada imagen.
 Los resultados se presentan a continuación:
+
+\section {Ejercicio 2}
+
+\section {Ejercicio 3}
+
+
+\section{Ejercicio 4}
+El objetivo de este ejercicio es evaluar el desempeño de la compresion de imagenes al variar el espacio ahorrado (S). 
+
+\begin{equation}
+S = \left( 1 - \frac{\text{cantidad de componentes principales } (k)}{\text{cantidad de componentes totales } (m)} \right) \times 100 \%
+\end{equation}
+
+En primer lugar, para cada porcentaje de espacio ahorrado comprimimos una imagen y la reconstruimos. Luego, para medir el rendimiento del procedimiento, calculamos el error cuadratico medio (MSE) entre la imagen original y la reconstruida. 
+\begin{equation}
+MSE = \frac{1}{N_w N_h} \sum_{i=1}^{N_w} \sum_{j=1}^{N_h} (p_{ij} - \hat{p}_{ij})^2
+\end{equation}
+
+*insertar grafico*
+En el grafico, se observa que el error cuadratico medio aumenta a medida que lo hace el espacio ahorrado. Este resultado es coherente, ya que al descartar un mayor numero de componentes principales se pierde mas informacion de la imagen. 
+
+Para ilustrarlo, incluimos algunas imagenes para diferentes porcentajes de espacio ahorrado. 
+*instertar imagenes*.
+Vemos que a medida que S aumenta, la imagen reconstruida pierde nitidez. La reduccion de componentes principales se ve en una disminucion de la calidad de la imagen. 
 
 
 \section{Metodología}
