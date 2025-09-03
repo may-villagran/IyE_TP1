@@ -10,8 +10,9 @@
 \geometry{margin=2.5cm}
 
 % Datos del informe
+\title{Inferencia Y Estimación}
 \title{Título del Informe}
-\author{Nombre del Autor \\ Universidad de San Andrés}
+\author{Catalina Hirsch - 36557 \\ Clara Zavaroni - legajo \\ Maylen Antonella Villagran Cardozo - legajo \\ \\ Universidad de San Andrés}
 \date{\today}
 
 \begin{document}
@@ -19,11 +20,21 @@
 \maketitle
 
 \begin{abstract}
-Resumen breve del informe. Describa los objetivos, metodología y conclusiones principales.
+La realización de este trabajo práctico tiene como objetivo aplicar el método de 
+PCA en la compresión de imágenes. De esta manera, se busca reducir su espacio de almacenamiento,
+minimizando la pérdida de información, conservando los datos que contengan la mayor parte de la información.
+Luego, se descomprime la imagen y se compara con la original para evaluar la calidad de la compresión. 
+Para ello, se evalúa su desempeño basado en la cantidad de componentes principales utilizados.
+Finalmente, pudimos observar que,....
 \end{abstract}
 
-\section{Introducción}
-Describa el contexto, los objetivos y la motivación del informe.
+\section{Ejercicio 1}
+El propósito de este ejercicio consiste en analizar el comportamiento de los píxeles vecinos en las imágenes utilizadas.
+En primer lugar, se cargan las imágenes y se convierten a escala de grises. Luego, se divide cada imagen en bloques de 2x1 píxeles
+contiguos verticalmente. A continuación, se calcula la correlación entre los píxeles de cada bloque y se almacena en un vector.
+Finalmente, se realiza un gráfico de dispersión de las correlaciones obtenidas para cada imagen.
+Los resultados se presentan a continuación:
+
 
 \section{Metodología}
 Explique los métodos, materiales y procedimientos utilizados.
