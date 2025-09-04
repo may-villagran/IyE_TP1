@@ -1,4 +1,5 @@
 \documentclass[a4paper,12pt]{article}
+\usepackage{float} % en el preámbulo
 
 % Paquetes básicos
 \usepackage[utf8]{inputenc}
@@ -34,11 +35,111 @@ En primer lugar, se cargan las imágenes y se convierten a escala de grises. Lue
 contiguos verticalmente. A continuación, se calcula la correlación entre los píxeles de cada bloque y se almacena en un vector.
 Finalmente, se realiza un gráfico de dispersión de las correlaciones obtenidas para cada imagen.
 Los resultados se presentan a continuación:
+\\
+Para la primer imagen podemos observar la correlación de los píxeles contiguos verticalmente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio1a.png}
+    \caption{Imagen 1, gráfico de dispersión de la correlación de píxeles contiguos verticalmente}
+    \label{fig:correlacion1}
+\end{figure}
+
+Analizando el comportamiento del gráfico, los puntos se alinean en torno a una recta creciente, lo cuál indica una fuerte correlación positiva entre los píxeles.
+El resultado se debe a que, la imagen presenta suavidad, el color de los píxeles vecinos se asemeja.
+
+Por otro lado, los resultados de la segunda imagen son los siguientes:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio1b.png}
+    \caption{Imagen 2, gráfico de dispersión de la correlación de píxeles contiguos verticalmente}
+    \label{fig:correlacion2}
+\end{figure}
+
+A diferencia del gráfico anterior, los puntos se encuentran más dispersos, implicando una correlación más baja que la imagen anterior.
+Atribuímos la diferencia al ruido perteneciente a esta imagen, y a la falta de suavidad. Los colores entre los píxeles vecinos no están relacionados.
+\\
+Luego, se estiman los coeficientes de correlación de cada vector siguiendo el proceso:
+
+\begin{enumerate}
+    \item Se separa la imagen en bloques de 8 * 8
+    \item Para cada bloque, se utiliza .flatten() para convertir en un vector 64 * 1
+    \item Para el calculo de la correlación, se calcula el desvio estándar de cada par de vectores contiguos verticalmente. 
+    Evitando la posible división por cero en el calculo.
+    \item Se calcula la correlación entre vectores contiguos verticalmente.
+\end{enumerate}
+
+Los resultados son los presentados a continuación:
+\begin{enumerate}
+    \item Para la Imagen 1 se obtuvieron valores como: 
+    $[-0.67, -0.69, -0.48, 0.19, \dots]$, 
+    con una media de $\bar{\rho}_1 = 0.0993$. 
+
+    \item Para la Imagen 2 los coeficientes fueron: 
+    $[0.007, 0.276, -0.017, -0.052, \dots]$, 
+    con una media de $\bar{\rho}_2 = 0.0022$.
+\end{enumerate}
+
+Los resultados de la primer imagen apoyan lo intuido anteriormente, al aproximarse al valor 1, indican una fuerte correlación entre los píxeles.
+Con respecto a la segunda imagen, sus resultados también apoyan lo intuido, al acercase al valor 0, demuestra que los píxeles vecinos no están relacionados.
+
+Por último, se pide una transformación que descorrelacione las variables.
+Se utiliza la transformación de descorrelación de PCA:
+
+\[
+Y = P^T X
+\]
+De esta forma, \(Y\) es la proyección de \(X\) en el espacio de autovectores de \(C_X\).
+\\
+Nuevamente, se hace uso de un gráfico de dispersión por imagen, dando los siguientes resultados:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Ejercicio1c.png}
+    \caption{Imagen 1, gráfico de dispersión de la descorrelación de píxeles contiguos verticalmente}
+    \label{fig:descorrelacion1}
+\end{figure}
+
+Podemos observar en la primer imagen, como los píxeles se encuentran concentrados en el eje vertical Y2, el proceso de descorrelación resulta exitoso.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Ejercicio1d.png}
+    \caption{Imagen 2, gráfico de dispersión de la descorrelación de píxeles contiguos verticalmente}
+    \label{fig:descorrelacion2}
+\end{figure}
+
+Por otro lado, en la segunda imagen, el gráfico se mantiene en forma de una nube, como en la Figura 2. Demostrando la falta de correlación inicial.
 
 \section {Ejercicio 2}
 
 \section {Ejercicio 3}
 
+Luego de lo realizado en el Ejercicio 2, se realiza la reconstrucción de la imagen comprimida. Utilizando el proceso inverso del PCA de compresión, para descomprimir.
+A través del Ejercicio 2, se obtienen los siguientes datos de la imagen:
+
+Vectores \(y_i\) (\(Y\)), la matriz de autovectores (\(P\)) y la media \(\mu_X\) (\(\mu\))
+
+Una vez obtenida la información indicada, se aplica la proyección inversa del PCA, para obtener los vectores \(x_i\) aproximados:
+
+\[
+X = Y P^T + \mu
+\]
+donde \(X\) es la matriz original, \(Y\) es la matriz proyectada, \(P\) son los autovectores y \(\mu\) es la media.
+\\
+Finalmente, se recorre una matriz vacía, del tamaño necesario de la imagen. Completando con los bloques de la imagen reconstruída.
+De esta manera, obtenemos los siguientes resultados:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio3.png}
+    \caption{Imagen reconstruida a través del proceso de PCA inverso.}
+    \label{fig:ej3}
+\end{figure}
+
+Podemos notar el borde negro de la imagen reconstruida, lo cuál sucede al no poder completar bloques de exactamente 8 * 8 al comprimir la imagen.
+Adicionalmente, podemos observar una diferencia entre las imágenes o pérdida de nitidez, atribuido a la reducción de la dimesionalidad y la eliminación de componentes de menor varianza.
 
 \section{Ejercicio 4}
 El objetivo de este ejercicio es evaluar el desempeño de la compresion de imagenes al variar el espacio ahorrado (S). 
