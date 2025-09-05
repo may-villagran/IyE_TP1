@@ -148,30 +148,85 @@ El objetivo de este ejercicio es evaluar el desempeño de la compresion de image
 S = \left( 1 - \frac{\text{cantidad de componentes principales } (k)}{\text{cantidad de componentes totales } (m)} \right) \times 100 \%
 \end{equation}
 
-En primer lugar, para cada porcentaje de espacio ahorrado comprimimos una imagen y la reconstruimos. Luego, para medir el rendimiento del procedimiento, calculamos el error cuadratico medio (MSE) entre la imagen original y la reconstruida. 
+En primer lugar, para cada porcentaje de espacio ahorrado comprimimos una imagen y la reconstruimos. Luego, para 
+medir el rendimiento del procedimiento, calculamos el error cuadratico medio (MSE) entre la imagen original y 
+la reconstruida. 
 \begin{equation}
 MSE = \frac{1}{N_w N_h} \sum_{i=1}^{N_w} \sum_{j=1}^{N_h} (p_{ij} - \hat{p}_{ij})^2
 \end{equation}
 
-*insertar grafico*
-En el grafico, se observa que el error cuadratico medio aumenta a medida que lo hace el espacio ahorrado. Este resultado es coherente, ya que al descartar un mayor numero de componentes principales se pierde mas informacion de la imagen. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio 4a.png}
+    \caption{Grafico MSE vs S}
+    \label{fig:ej4}
+\end{figure}
+
+En el grafico, se observa que el error cuadratico medio aumenta a medida que lo hace el espacio ahorrado.
+Este resultado es coherente, ya que al descartar un mayor numero de componentes principales se pierde mas 
+informacion de la imagen. 
+Sin embargo, esta relacion no es proporcional: el error crece considerablemente a partir de un espacio 
+ahorrado del 80\%. Al superar ese porcentaje, la perdida de informacion se vuelve significativa, 
+impactando notablemente en la calidad de la imagen. 
+
 
 Para ilustrarlo, incluimos algunas imagenes para diferentes porcentajes de espacio ahorrado. 
-*instertar imagenes*.
-Vemos que a medida que S aumenta, la imagen reconstruida pierde nitidez. La reduccion de componentes principales se ve en una disminucion de la calidad de la imagen. 
-
-
-\section{Metodología}
-Explique los métodos, materiales y procedimientos utilizados.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio 4b75.png}
+    \caption{Imagenes original y reconstruida para un espacio ahorrado de 0.75.}
+    \label{fig:ej4b1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio 4b80.png}
+    \caption{Imagenes original y reconstruida para un espacio ahorrado de 0.80.}
+    \label{fig:ej4b2}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio 4b85.png}
+    \caption{Imagenes original y reconstruida para un espacio ahorrado de 0.85.}
+    \label{fig:ej4b3}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio 4b90.png}
+    \caption{Imagenes original y reconstruida para un espacio ahorrado de 0.90.}
+    \label{fig:ej4b4}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio 4b95.png}
+    \caption{Imagenes original y reconstruida para un espacio ahorrado de 0.95.}
+    \label{fig:ej4b5}
+\end{figure}
+Vemos que a medida que S aumenta, la imagen reconstruida pierde nitidez. La reduccion de 
+componentes principales se ve en una disminucion de la calidad de la imagen. 
 
 \section{Resultados}
 Presente los resultados obtenidos, incluyendo tablas y figuras si es necesario.
 
-\section{Discusión}
-Analice e interprete los resultados, comparando con la literatura o expectativas.
-
 \section{Conclusiones}
-Resuma los hallazgos principales y posibles trabajos futuros.
+En este trabajo practico implementamos y evaluamos la compresion de imagenes usando 
+PCA (Analisis de Componentes Principales). Este permite reducir la dimension de los datos
+al descartar las componentes de menor varianza, quedandose con las componentes principales, 
+es decir aquellas necesarias para la comprension de la imagen. De esta manera, se ahorra espacio 
+sin compromenter significativamente la calidad de la imagen .
+
+Los resultados mostraron que, a medida que aumenta el porcentaje de espacio ahorrado, la calidad
+de la imagen reconstruida decae progresivamente, especialmente a partir de la reducicon de 80\%. 
+Esto se refleja en un incremento notable del MSE. Sin embargo, consideramos que
+para valores intermedios de compresion (cercanos al 70\%), obtenemos un buen balance entre nitidez 
+de la imagen y reduccion de memoria. 
+
+* parrafo de dificultades *
+
+En conclusion, la aplicacion de PCA para la compresion de imagenes nos permitio observar
+de primera mano como la reduccion de dimensionalidad ayuda en el ahorro de almacenamiento,
+sin comprometer demasiado la calidad de la imagen.
+
+
 
 \section*{Referencias}
 \bibliographystyle{plain}
