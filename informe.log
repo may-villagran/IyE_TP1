@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2 NEXT) (preloaded format=pdflatex 2025.9.5)  5 SEP 2025 09:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2 NEXT) (preloaded format=pdflatex 2025.9.5)  5 SEP 2025 09:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -500,18 +500,24 @@ Package hyperref Info: Link coloring OFF on input line 27.
 \@outlinefile=\write3
 \openout3 = `informe.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
 
 
 (C:\Users\mayle\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
 
 
 (C:\Users\mayle\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+<Ejercicio1a.png, id=35, 859.2903pt x 426.393pt>
+File: Ejercicio1a.png Graphic file (type png)
+<use Ejercicio1a.png>
+Package pdftex.def Info: Ejercicio1a.png  used on input line 58.
+(pdftex.def)             Requested size: 455.24411pt x 225.89612pt.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -523,15 +529,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{C:/Users/mayle/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 ]
-<Ejercicio1a.png, id=45, 859.2903pt x 426.393pt>
-File: Ejercicio1a.png Graphic file (type png)
-<use Ejercicio1a.png>
-Package pdftex.def Info: Ejercicio1a.png  used on input line 64.
-(pdftex.def)             Requested size: 455.24411pt x 225.89612pt.
 <Ejercicio1b.png, id=47, 859.2903pt x 426.393pt>
 File: Ejercicio1b.png Graphic file (type png)
 <use Ejercicio1b.png>
-Package pdftex.def Info: Ejercicio1b.png  used on input line 76.
+Package pdftex.def Info: Ejercicio1b.png  used on input line 70.
 (pdftex.def)             Requested size: 455.24411pt x 225.89612pt.
 
 
@@ -547,8 +548,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.80 
-      <./Ejercicio1a.png>]
+l.79 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.79 
+      <./Ejercicio1a.png> <./Ejercicio1b.png>]
+<Ejercicio1c.png, id=56, 436.5108pt x 396.0396pt>
+File: Ejercicio1c.png Graphic file (type png)
+<use Ejercicio1c.png>
+Package pdftex.def Info: Ejercicio1c.png  used on input line 114.
+(pdftex.def)             Requested size: 318.66948pt x 289.12462pt.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -557,22 +570,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.117 
-       <./Ejercicio1b.png>]
-<Ejercicio1c.png, id=70, 436.5108pt x 396.0396pt>
-File: Ejercicio1c.png Graphic file (type png)
-<use Ejercicio1c.png>
-Package pdftex.def Info: Ejercicio1c.png  used on input line 120.
-(pdftex.def)             Requested size: 318.66948pt x 289.12462pt.
+[3]
 <Ejercicio1d.png, id=71, 436.5108pt x 396.0396pt>
 File: Ejercicio1d.png Graphic file (type png)
 <use Ejercicio1d.png>
-Package pdftex.def Info: Ejercicio1d.png  used on input line 129.
+Package pdftex.def Info: Ejercicio1d.png  used on input line 123.
 (pdftex.def)             Requested size: 318.66948pt x 289.12462pt.
 
 
@@ -588,7 +590,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.133 
+l.127 
        <./Ejercicio1c.png>]
 
 
@@ -603,21 +605,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.168 \]
+l.146 \]
          <./Ejercicio1d.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[6]
-<Ejercicio3.png, id=96, 573.8238pt x 217.5327pt>
+<Ejercicio3.png, id=86, 573.8238pt x 217.5327pt>
 File: Ejercicio3.png Graphic file (type png)
 <use Ejercicio3.png>
-Package pdftex.def Info: Ejercicio3.png  used on input line 274.
+Package pdftex.def Info: Ejercicio3.png  used on input line 193.
 (pdftex.def)             Requested size: 455.24411pt x 172.58249pt.
 
 
@@ -628,11 +621,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7]
-<Ejercicio 4a.png, id=103, 462.528pt x 346.896pt>
+[6]
+<Ejercicio 4a.png, id=92, 462.528pt x 346.896pt>
 File: Ejercicio 4a.png Graphic file (type png)
 <use Ejercicio 4a.png>
-Package pdftex.def Info: Ejercicio 4a.png  used on input line 298.
+Package pdftex.def Info: Ejercicio 4a.png  used on input line 217.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
 
 
@@ -643,22 +636,53 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8
+[7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.302 
+l.221 
        <./Ejercicio3.png>]
-<Ejercicio 4b75.png, id=113, 573.8238pt x 207.4149pt>
+<Ejercicio 4b75.png, id=103, 573.8238pt x 207.4149pt>
 File: Ejercicio 4b75.png Graphic file (type png)
 <use Ejercicio 4b75.png>
-Package pdftex.def Info: Ejercicio 4b75.png  used on input line 314.
+Package pdftex.def Info: Ejercicio 4b75.png  used on input line 233.
 (pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
-<Ejercicio 4b80.png, id=114, 573.8238pt x 207.4149pt>
+<Ejercicio 4b80.png, id=104, 573.8238pt x 207.4149pt>
 File: Ejercicio 4b80.png Graphic file (type png)
 <use Ejercicio 4b80.png>
-Package pdftex.def Info: Ejercicio 4b80.png  used on input line 320.
+Package pdftex.def Info: Ejercicio 4b80.png  used on input line 239.
+(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.242 \end{figure}
+                   <./Ejercicio 4a.png>]
+<Ejercicio 4b85.png, id=111, 573.8238pt x 207.4149pt>
+File: Ejercicio 4b85.png Graphic file (type png)
+<use Ejercicio 4b85.png>
+Package pdftex.def Info: Ejercicio 4b85.png  used on input line 245.
+(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
+<Ejercicio 4b90.png, id=112, 573.8238pt x 207.4149pt>
+File: Ejercicio 4b90.png Graphic file (type png)
+<use Ejercicio 4b90.png>
+Package pdftex.def Info: Ejercicio 4b90.png  used on input line 251.
+(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
+<Ejercicio 4b95.png, id=113, 573.8238pt x 207.4149pt>
+File: Ejercicio 4b95.png Graphic file (type png)
+<use Ejercicio 4b95.png>
+Package pdftex.def Info: Ejercicio 4b95.png  used on input line 257.
 (pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
 
 
@@ -670,54 +694,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [9
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.323 \end{figure}
-                   <./Ejercicio 4a.png>]
-<Ejercicio 4b85.png, id=121, 573.8238pt x 207.4149pt>
-File: Ejercicio 4b85.png Graphic file (type png)
-<use Ejercicio 4b85.png>
-Package pdftex.def Info: Ejercicio 4b85.png  used on input line 326.
-(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
-<Ejercicio 4b90.png, id=122, 573.8238pt x 207.4149pt>
-File: Ejercicio 4b90.png Graphic file (type png)
-<use Ejercicio 4b90.png>
-Package pdftex.def Info: Ejercicio 4b90.png  used on input line 332.
-(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
-<Ejercicio 4b95.png, id=123, 573.8238pt x 207.4149pt>
-File: Ejercicio 4b95.png Graphic file (type png)
-<use Ejercicio 4b95.png>
-Package pdftex.def Info: Ejercicio 4b95.png  used on input line 338.
-(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.341 \end{figure}
+l.260 \end{figure}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.341 \end{figure}
+l.260 \end{figure}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.341 \end{figure}
+l.260 \end{figure}
                    <./Ejercicio 4b75.png> <./Ejercicio 4b80.png> <./Ejercicio 4
 b85.png>]
 
@@ -728,18 +721,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11
+[10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.360 
+l.282 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.360 
+l.282 
        <./Ejercicio 4b90.png> <./Ejercicio 4b95.png>]
 No file informe.bbl.
 
@@ -751,7 +744,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12] (informe.aux
+[11] (informe.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -763,37 +756,49 @@ L3 programming layer <2025-07-20>
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 7DC0AD2BB7BF6AAE5DF4A78EB9AA34E1;1145.
+
+Package rerunfilecheck Warning: File `informe.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `informe.out':
+(rerunfilecheck)             Before: 7DC0AD2BB7BF6AAE5DF4A78EB9AA34E1;1145
+(rerunfilecheck)             After:  C25FC82D1F234641DBF6F935CFE7A0BA;1052.
  ) 
 Here is how much of TeX's memory you used:
- 12453 strings out of 468134
- 194618 string characters out of 5430741
- 624945 words of memory out of 5000000
- 40876 multiletter control sequences out of 15000+600000
- 637736 words of font info for 79 fonts, out of 8000000 for 9000
+ 12440 strings out of 468134
+ 194397 string characters out of 5430741
+ 624944 words of memory out of 5000000
+ 40867 multiletter control sequences out of 15000+600000
+ 637429 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,666b,498s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmcsc10.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/mayle/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/mayle/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/mayle/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/mayle
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/U
-sers/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr12.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr8.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/mayle/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on informe.pdf (12 pages, 1849197 bytes).
+
+pdfTeX warning (dest): name{section*.5} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.7} has been referenced but does not exist, 
+replaced by a fixed one
+
+<C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+bx10.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmcsc10.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/mayle/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/mayle/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/mayle/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/mayle/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Use
+rs/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb
+><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mr12.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmtt12.pfb>
+Output written on informe.pdf (11 pages, 1829038 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
+ 203 PDF objects out of 1000 (max. 8388607)
+ 40 named destinations out of 1000 (max. 500000)
  120 words of extra memory for PDF output out of 10000 (max. 10000000)
 
