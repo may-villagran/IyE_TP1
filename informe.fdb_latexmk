@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1757114843.15021 "/Users/catalinahirsch/Desktop/UDESA/2do año 2do cuatri/Inferencia y Estimación/TP1/IyE_TP1/informe.tex" "informe.pdf" "informe" 1757114844.2555 0
-  "/Users/catalinahirsch/Desktop/UDESA/2do año 2do cuatri/Inferencia y Estimación/TP1/IyE_TP1/informe.tex" 1757114353.58071 14242 ca21e9cd5355c04b53099976810f1cac ""
+["pdflatex"] 1757114997.12034 "/Users/catalinahirsch/Desktop/UDESA/2do año 2do cuatri/Inferencia y Estimación/TP1/IyE_TP1/informe.tex" "informe.pdf" "informe" 1757114998.26031 0
+  "/Users/catalinahirsch/Desktop/UDESA/2do año 2do cuatri/Inferencia y Estimación/TP1/IyE_TP1/informe.tex" 1757114996.85743 14244 afdd81d8b98d8fdb0f280112747d803e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -115,11 +115,11 @@
   "Ejercicio 4b.png" 1757106690.25347 540647 2dcd2ad060e7d7ccee672c80ea9eab7e ""
   "Ejercicio1a.png" 1757114771.41427 205183 1fcb097dcffe2fdec40e0c6b711788c6 ""
   "Ejercicio1b.png" 1757114842.57474 381625 012d5ed0af0bf27c45ea714339337d19 ""
-  "Ejercicio1c.png" 1757003668.26826 62827 9a1bd549bcc6e82c238ff4121be140d5 ""
-  "Ejercicio1d.png" 1757003677.66606 91790 685def9336f95e62211435413ce7f6ce ""
+  "Ejercicio1c.png" 1757114915.64888 58832 ee71170e4d974178651062b284fa55c6 ""
+  "Ejercicio1d.png" 1757114927.82591 84451 aa6e27307e17d3a42176708387b8e36d ""
   "Ejercicio3.png" 1757003714.66787 187602 e91797c4b977e3f4664e6efb2e58f1f7 ""
-  "informe.aux" 1757114844.19171 3258 a9c4d05023b15f8e83cfd79e4f68a3ce "pdflatex"
-  "informe.out" 1757114844.1929 961 e406fe8704042e4e72e11a74bcabd7d1 "pdflatex"
+  "informe.aux" 1757114998.19121 3258 a9c4d05023b15f8e83cfd79e4f68a3ce "pdflatex"
+  "informe.out" 1757114998.19247 961 e406fe8704042e4e72e11a74bcabd7d1 "pdflatex"
   (generated)
   "informe.aux"
   "informe.log"
