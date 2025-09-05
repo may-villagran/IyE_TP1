@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.2)  4 SEP 2025 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.2)  5 SEP 2025 07:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -365,7 +365,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Ejercicio1a.png, id=36, 859.2903pt x 426.393pt>
+<Ejercicio1a.png, id=28, 859.2903pt x 426.393pt>
 File: Ejercicio1a.png Graphic file (type png)
 <use Ejercicio1a.png>
 Package pdftex.def Info: Ejercicio1a.png  used on input line 43.
@@ -375,7 +375,7 @@ Package pdftex.def Info: Ejercicio1a.png  used on input line 43.
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<Ejercicio1b.png, id=48, 859.2903pt x 426.393pt>
+<Ejercicio1b.png, id=40, 859.2903pt x 426.393pt>
 File: Ejercicio1b.png Graphic file (type png)
 <use Ejercicio1b.png>
 Package pdftex.def Info: Ejercicio1b.png  used on input line 55.
@@ -383,7 +383,7 @@ Package pdftex.def Info: Ejercicio1b.png  used on input line 55.
 
 
 [2 <./Ejercicio1a.png> <./Ejercicio1b.png>]
-<Ejercicio1c.png, id=57, 436.5108pt x 396.0396pt>
+<Ejercicio1c.png, id=49, 436.5108pt x 396.0396pt>
 File: Ejercicio1c.png Graphic file (type png)
 <use Ejercicio1c.png>
 Package pdftex.def Info: Ejercicio1c.png  used on input line 99.
@@ -391,12 +391,12 @@ Package pdftex.def Info: Ejercicio1c.png  used on input line 99.
 
 
 [3 <./Ejercicio1c.png>]
-<Ejercicio1d.png, id=74, 436.5108pt x 396.0396pt>
+<Ejercicio1d.png, id=66, 436.5108pt x 396.0396pt>
 File: Ejercicio1d.png Graphic file (type png)
 <use Ejercicio1d.png>
 Package pdftex.def Info: Ejercicio1d.png  used on input line 108.
 (pdftex.def)             Requested size: 318.66948pt x 289.12462pt.
-<Ejercicio3.png, id=75, 573.8238pt x 217.5327pt>
+<Ejercicio3.png, id=67, 573.8238pt x 217.5327pt>
 File: Ejercicio3.png Graphic file (type png)
 <use Ejercicio3.png>
 Package pdftex.def Info: Ejercicio3.png  used on input line 136.
@@ -404,12 +404,49 @@ Package pdftex.def Info: Ejercicio3.png  used on input line 136.
 
 
 [4 <./Ejercicio1d.png>]
+<Ejercicio 4a.png, id=74, 462.528pt x 346.896pt>
+File: Ejercicio 4a.png Graphic file (type png)
+<use Ejercicio 4a.png>
+Package pdftex.def Info: Ejercicio 4a.png  used on input line 160.
+(pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
+
 
 [5 <./Ejercicio3.png>]
+<Ejercicio 4b75.png, id=85, 573.8238pt x 207.4149pt>
+File: Ejercicio 4b75.png Graphic file (type png)
+<use Ejercicio 4b75.png>
+Package pdftex.def Info: Ejercicio 4b75.png  used on input line 176.
+(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
+<Ejercicio 4b80.png, id=86, 573.8238pt x 207.4149pt>
+File: Ejercicio 4b80.png Graphic file (type png)
+<use Ejercicio 4b80.png>
+Package pdftex.def Info: Ejercicio 4b80.png  used on input line 182.
+(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
+<Ejercicio 4b85.png, id=87, 573.8238pt x 207.4149pt>
+File: Ejercicio 4b85.png Graphic file (type png)
+<use Ejercicio 4b85.png>
+Package pdftex.def Info: Ejercicio 4b85.png  used on input line 188.
+(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
+
+
+[6 <./Ejercicio 4a.png> <./Ejercicio 4b75.png>]
+<Ejercicio 4b90.png, id=96, 573.8238pt x 207.4149pt>
+File: Ejercicio 4b90.png Graphic file (type png)
+<use Ejercicio 4b90.png>
+Package pdftex.def Info: Ejercicio 4b90.png  used on input line 194.
+(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
+<Ejercicio 4b95.png, id=97, 573.8238pt x 207.4149pt>
+File: Ejercicio 4b95.png Graphic file (type png)
+<use Ejercicio 4b95.png>
+Package pdftex.def Info: Ejercicio 4b95.png  used on input line 200.
+(pdftex.def)             Requested size: 455.24411pt x 164.5554pt.
+
+
+[7 <./Ejercicio 4b80.png> <./Ejercicio 4b85.png> <./Ejercicio 4b90.png>]
 No file informe.bbl.
 
 
-[6] (./informe.aux
+[8 <./Ejercicio 4b95.png>] (./informe.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -418,21 +455,21 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: CF2B216FCD44A852712EC49B1423CB35;792.
+(rerunfilecheck)             Checksum: 792C21370B4E68BE2439A1167C1A0D58;600.
  ) 
 Here is how much of TeX's memory you used:
- 11761 strings out of 473190
- 181932 string characters out of 5715801
- 599403 words of memory out of 5000000
- 34853 multiletter control sequences out of 15000+600000
+ 11813 strings out of 473190
+ 183048 string characters out of 5715801
+ 599880 words of memory out of 5000000
+ 34899 multiletter control sequences out of 15000+600000
  567594 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,367b,538s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,351b,538s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on informe.pdf (6 pages, 904841 bytes).
+Output written on informe.pdf (8 pages, 1781407 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 110 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 173 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 104 words of extra memory for PDF output out of 10000 (max. 10000000)
 

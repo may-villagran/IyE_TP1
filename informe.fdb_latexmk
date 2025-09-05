@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex informe"] 0 "informe.aux" "informe.bbl" "informe" 1757013788.28643 0
+["bibtex informe"] 0 "informe.aux" "informe.bbl" "informe" 1757069337.20853 0
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "informe.aux" 0 -1 0 "pdflatex"
   "referencias.bib" 0 -1 0 ""
@@ -7,8 +7,8 @@
   "informe.bbl"
   "informe.blg"
   (rewritten before read)
-["pdflatex"] 1757013787.23052 "/Users/catalinahirsch/Desktop/UDESA/2do año 2do cuatri/Inferencia y Estimación/TP1/IyE_TP1/informe.tex" "informe.pdf" "informe" 1757013788.28656 0
-  "/Users/catalinahirsch/Desktop/UDESA/2do año 2do cuatri/Inferencia y Estimación/TP1/IyE_TP1/informe.tex" 1757013786.98921 8285 790166e690cb41635c9c45dac4b80399 ""
+["pdflatex"] 1757069335.93458 "/Users/catalinahirsch/Desktop/UDESA/2do año 2do cuatri/Inferencia y Estimación/TP1/IyE_TP1/informe.tex" "informe.pdf" "informe" 1757069337.20866 0
+  "/Users/catalinahirsch/Desktop/UDESA/2do año 2do cuatri/Inferencia y Estimación/TP1/IyE_TP1/informe.tex" 1757069334.20011 10556 7c9b8a0301b31b7cc6a0991e3e517c12 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -103,14 +103,20 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1756854513 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1756854502 3345735 4eb198f83b96543dd4d0d35771fe903d ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
+  "Ejercicio 4a.png" 1757069334.19316 23227 bf7311982334670b746b0d4cdb032a7e ""
+  "Ejercicio 4b75.png" 1757069334.19412 168545 a354cdc56ec774746a4649b1a0c54923 ""
+  "Ejercicio 4b80.png" 1757069334.19554 167257 3c95b07c78f300fbcc8c2856a46a4909 ""
+  "Ejercicio 4b85.png" 1757069334.1965 166593 62f59b0d12c31aedd8d61942b29994c0 ""
+  "Ejercicio 4b90.png" 1757069334.19759 167324 2353f2292618602f0a9038f942d2fee9 ""
+  "Ejercicio 4b95.png" 1757069334.19851 161099 3ddd5ab05072e6a366178a1dd74c4aeb ""
   "Ejercicio1a.png" 1757003648.86952 222007 5eaca5c548c875307ae50475c09a7cbc ""
   "Ejercicio1b.png" 1757003657.4508 542684 71a3968fb14466d3ddd2095f7e2a4fda ""
   "Ejercicio1c.png" 1757003668.26826 62827 9a1bd549bcc6e82c238ff4121be140d5 ""
   "Ejercicio1d.png" 1757003677.66606 91790 685def9336f95e62211435413ce7f6ce ""
   "Ejercicio3.png" 1757003714.66787 187602 e91797c4b977e3f4664e6efb2e58f1f7 ""
-  "informe.aux" 1757013788.05882 2896 bd4303b58583b7b649b0d8481dfb292c "pdflatex"
+  "informe.aux" 1757069336.98744 4297 48bb2c67f0787eee907e69a6ee56199b "pdflatex"
   "informe.bbl" 0 -1 0 "bibtex informe"
-  "informe.out" 1757013788.05987 792 cf2b216fcd44a852712ec49b1423cb35 "pdflatex"
+  "informe.out" 1757069336.98872 600 792c21370b4e68be2439a1167c1a0d58 "pdflatex"
   (generated)
   "informe.aux"
   "informe.log"
