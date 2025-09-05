@@ -1,42 +1,57 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage{float} % en el preámbulo
 
-% Paquetes básicos
+\documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{hyperref}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
 \geometry{margin=2.5cm}
 
-% Datos del informe
-\title{Inferencia Y Estimación}
-\title{Título del Informe}
-\author{Catalina Hirsch - 36557 \\ Clara Zavaroni Benoit - 36772 \\ Maylen Antonella Villagran Cardozo - legajo \\ \\ Universidad de San Andrés}
-\date{\today}
+% Encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Inferencia y Estimación}
+\rhead{Universidad de San Andrés}
+\cfoot{\thepage}
 
+% Numeración de ecuaciones y figuras por sección
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+% Portada formal
 \begin{document}
+\noindent
+\begin{minipage}{\textwidth}
+    \centering
+    {\scshape\LARGE Universidad de San Andrés \par}
+    \vspace{1.2cm}
+    {\scshape\Large Inferencia y Estimación\par}
+    \vspace{1.2cm}
+    {\huge\bfseries Compresión y Descompresión de Imágenes usando PCA\par}
+    \vspace{1.5cm}
+    {\large
+    Catalina Hirsch - 36557 \\ Clara Zavaroni Benoit - 36772 \\ Maylen Antonella Villagran Cardozo - 36758 \\}
+    \vspace{1cm}
+    {\large \today\par}
+\end{minipage}
 
-\maketitle
+
 
 \begin{abstract}
-La realización de este trabajo práctico tiene como objetivo aplicar el método de 
-PCA en la compresión de imágenes. De esta manera, se busca reducir su espacio de almacenamiento,
-minimizando la pérdida de información, conservando los datos que contengan la mayor parte de la información.
-Luego, se descomprime la imagen y se compara con la original para evaluar la calidad de la compresión. 
-Para ello, se evalúa su desempeño basado en la cantidad de componentes principales utilizados.
-Finalmente, pudimos observar que,....
+La realización de este trabajo práctico tiene como objetivo aplicar el método de \textbf{Análisis de Componentes Principales (PCA)} en la compresión de imágenes. Se busca reducir el espacio de almacenamiento minimizando la pérdida de información, conservando los datos que contienen la mayor parte de la varianza. Posteriormente, se descomprime la imagen y se compara con la original para evaluar la calidad de la compresión, utilizando métricas objetivas. El desempeño se evalúa en función de la cantidad de componentes principales utilizados. Finalmente, se discuten los resultados y conclusiones obtenidas.
 \end{abstract}
 
-\section{Ejercicio 1}
-El propósito de este ejercicio consiste en analizar el comportamiento de los píxeles vecinos en las imágenes utilizadas.
-En primer lugar, se cargan las imágenes y se convierten a escala de grises. Luego, se divide cada imagen en bloques de 2x1 píxeles
-contiguos verticalmente. A continuación, se calcula la correlación entre los píxeles de cada bloque y se almacena en un vector.
-Finalmente, se realiza un gráfico de dispersión de las correlaciones obtenidas para cada imagen.
-Los resultados se presentan a continuación:
-\\
-Para la primer imagen podemos observar la correlación de los píxeles contiguos verticalmente:
+
+\section{Introducción}
+En este informe se estudia la compresión y descompresión de imágenes mediante el método de Análisis de Componentes Principales (PCA). Se analizan las propiedades estadísticas de las imágenes, se implementa el proceso de compresión y reconstrucción, y se evalúa el desempeño en función de la calidad de la imagen reconstruida y el ahorro de espacio.
+
+\section{Ejercicio 1: Correlación}
+El propósito de este ejercicio es analizar el comportamiento de los píxeles vecinos en las imágenes utilizadas. En primer lugar, se cargan las imágenes y se convierten a escala de grises. Luego, se divide cada imagen en bloques de 2x1 píxeles contiguos verticalmente. A continuación, se calcula la correlación entre los píxeles de cada bloque y se almacena en un vector. Finalmente, se realiza un gráfico de dispersión de las correlaciones obtenidas para cada imagen. Los resultados se presentan a continuación:
 
 \begin{figure}[H]
     \centering
@@ -112,9 +127,126 @@ Podemos observar en la primer imagen, como los píxeles se encuentran concentrad
 
 Por otro lado, en la segunda imagen, el gráfico se mantiene en forma de una nube, como en la Figura 2. Demostrando la falta de correlación inicial.
 
-\section {Ejercicio 2}
+\section {Ejercicio 2: Compresión}
 
-\section {Ejercicio 3}
+En este ejercicio se implementa un esquema de \textbf{compresión de imágenes} basado en el \textbf{Análisis de Componentes Principales (PCA)}. El objetivo de PCA es transformar un conjunto de datos
+
+\[
+X = \{\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_m\}, \quad \mathbf{x}_i \in \mathbb{R}^n,
+\]
+
+en un nuevo conjunto de variables
+
+\[
+Y = \{\mathbf{y}_1, \mathbf{y}_2, \dots, \mathbf{y}_m\}, \quad \mathbf{y}_i \in \mathbb{R}^k,
+\]
+
+mediante una transformación lineal tal que \(k < n\). Así, se logra \textbf{reducir la dimensionalidad} (de \(n\) a \(k\)), \textbf{descorrelacionar} las variables y conservar la mayor parte de la información relevante.
+
+\subsubsection*{Formación de la matriz de datos}
+
+La imagen se divide en sub-bloques de tamaño \(8 \times 8\) píxeles. Cada bloque se recorre por columnas y se aplana en un vector columna:
+
+\[
+\mathbf{x}_i = \mathrm{vec}(B^{(i)}) =
+\begin{bmatrix}
+B^{(i)}_{1,1} \\
+B^{(i)}_{2,1} \\
+\vdots \\
+B^{(i)}_{8,1} \\
+B^{(i)}_{1,2} \\
+\vdots \\
+B^{(i)}_{8,8}
+\end{bmatrix}
+\in \mathbb{R}^{64 \times 1}
+\]
+
+Repitiendo este proceso para todos los bloques, se obtiene una colección de vectores \(\mathbf{x}_1, \ldots, \mathbf{x}_m\), que se organizan como filas en la matriz de datos:
+
+\[
+X =
+\begin{bmatrix}
+\mathbf{x}_1^T \\
+\mathbf{x}_2^T \\
+\vdots \\
+\mathbf{x}_m^T
+\end{bmatrix}
+\in \mathbb{R}^{m \times 64}
+\]
+
+Cada fila de \(X\) representa un bloque vectorizado de la imagen y cada columna una posición fija dentro del bloque.
+
+\subsection*{Cálculo de la media y la matriz de covarianza}
+
+La función \texttt{mean\_estimator()} calcula el vector media de las columnas de \(X\):
+
+\[
+\boldsymbol{\mu} = \frac{1}{m} \sum_{i=1}^m \mathbf{x}_i \in \mathbb{R}^{64}
+\]
+
+Luego, se centra la matriz de datos restando la media a cada fila:
+
+\[
+X_c = X - \mathbf{1}_m \boldsymbol{\mu}^T
+\]
+
+donde \(\mathbf{1}_m\) es un vector columna de unos de dimensión \(m\).
+
+La función \texttt{cov\_estimator()} estima la matriz de covarianza:
+
+\[
+C_X = \frac{1}{m-1} X_c^T X_c \in \mathbb{R}^{64 \times 64}
+\]
+
+Cada elemento \(c_{ij}\) de \(C_X\) representa la covarianza entre la posición \(i\) y \(j\) dentro de los bloques.
+
+\subsection*{Descomposición en autovalores y autovectores}
+
+La función \texttt{pca\_transform()} aplica PCA resolviendo el siguiente problema de autovalores:
+
+\[
+C_X \mathbf{v}_j = \lambda_j \mathbf{v}_j, \quad j = 1, \dots, 64
+\]
+
+Se ordenan los autovalores \(\lambda_j\) en forma decreciente y se seleccionan los \(k\) mayores. Se construye la matriz de proyección:
+
+\[
+P = \begin{bmatrix} \mathbf{v}_1 & \mathbf{v}_2 & \cdots & \mathbf{v}_k \end{bmatrix} \in \mathbb{R}^{64 \times k}
+\]
+
+La representación reducida se obtiene como:
+
+\[
+Y = X_c P \in \mathbb{R}^{m \times k}
+\]
+
+El número de componentes \(k\) se define según el \textbf{factor de compresión}. En el código, la función \texttt{space\_saving\_k(s, m)} lo calcula como:
+
+\[
+k = \max\big(1, \min(m, \lceil m(1-s) \rceil)\big)
+\]
+
+donde \(s \in [0,1]\) es el porcentaje de reducción elegido.
+
+\subsection*{Almacenamiento y reconstrucción}
+
+La función \texttt{save\_data()} guarda:
+\begin{itemize}
+    \item \(Y\): matriz de datos comprimidos,
+    \item \(P\): matriz de autovectores,
+    \item \(\boldsymbol{\mu}\): vector de medias.
+\end{itemize}
+
+Esto permite reconstruir la aproximación de la imagen original con la fórmula inversa:
+
+\[
+\hat{X} = Y P^T + \mathbf{1}_m \boldsymbol{\mu}^T
+\]
+
+Finalmente, la función \texttt{plot\_eigenvalues()} grafica los autovalores \(\lambda_j\), destacando los conservados y los descartados.
+
+
+\section {Ejercicio 3: Descompresión}
 
 Luego de lo realizado en el Ejercicio 2, se realiza la reconstrucción de la imagen comprimida. Utilizando el proceso inverso del PCA de compresión, para descomprimir.
 A través del Ejercicio 2, se obtienen los siguientes datos de la imagen:
@@ -141,7 +273,7 @@ De esta manera, obtenemos los siguientes resultados:
 Podemos notar el borde negro de la imagen reconstruida, lo cuál sucede al no poder completar bloques de exactamente 8 * 8 al comprimir la imagen.
 Adicionalmente, podemos observar una diferencia entre las imágenes o pérdida de nitidez, atribuido a la reducción de la dimesionalidad y la eliminación de componentes de menor varianza.
 
-\section{Ejercicio 4}
+\section{Ejercicio 4: Medidas de desempeño}
 El objetivo de este ejercicio es evaluar el desempeño de la compresion de imagenes al variar el espacio ahorrado (S). 
 
 \begin{equation}
@@ -204,9 +336,6 @@ Para ilustrarlo, incluimos algunas imagenes para diferentes porcentajes de espac
 Vemos que a medida que S aumenta, la imagen reconstruida pierde nitidez. La reduccion de 
 componentes principales se ve en una disminucion de la calidad de la imagen. 
 
-\section{Resultados}
-Presente los resultados obtenidos, incluyendo tablas y figuras si es necesario.
-
 \section{Conclusiones}
 En este trabajo practico implementamos y evaluamos la compresion de imagenes usando 
 PCA (Analisis de Componentes Principales). Este permite reducir la dimension de los datos
@@ -228,7 +357,9 @@ sin comprometer demasiado la calidad de la imagen.
 
 
 
+
 \section*{Referencias}
+\addcontentsline{toc}{section}{Referencias}
 \bibliographystyle{plain}
 \bibliography{referencias}
 
