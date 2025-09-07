@@ -19,6 +19,9 @@
 \rhead{Universidad de San Andrés}
 \cfoot{\thepage}
 
+% Numeración automática de figuras y formato uniforme
+\renewcommand{\thefigure}{\arabic{figure}}
+\captionsetup[figure]{skip=2pt, labelfont=bf, labelsep=period}
 
 % Portada formal
 \begin{document}
@@ -126,23 +129,24 @@ Por otro lado, en la segunda imagen, el gráfico se mantiene en forma de una nub
 \section*{Ejercicio 2: Compresión}
 \addcontentsline{toc}{section}{Ejercicio 2: Compresión}
 
-En este ejercicio se implementa un método de compresión de imágenes utilizando el Análisis de Componentes Principales (PCA). El objetivo es transformar la información contenida en la imagen, originalmente de alta dimensión, en una representación más compacta que conserve la mayor parte de la información relevante.
+
+El objetivo de este ejercicio es transformar la información contenida en la imagen, originalmente de alta dimensión, en una representación más compacta que conserve la mayor parte de la información relevante.
 
 \vspace{1em}
 
-El proceso comienza dividiendo la imagen en bloques de 8x8 píxeles. Cada uno de estos bloques se recorre por columnas y se convierte en un vector columna de 64 elementos. De esta manera, si la imagen tiene un total de $m$ bloques, se obtiene una colección de vectores $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$, cada uno de dimensión $64 \times 1$. Estos vectores se organizan como filas en una matriz de datos $X$ de tamaño $m \times 64$, donde cada fila representa un bloque vectorizado y cada columna corresponde a una posición fija dentro del bloque.
+El proceso comienza dividiendo la imagen en bloques de 8x8 píxeles, por lo que se tuvo que recortar la imagen de modo que quedara un tamaño múltiplo de 8. Para esto, se utilizó la función \texttt{image\_to\_list\_x()}, que recorre cada bloque por columnas y lo convierte en un vector columna de 64 elementos. Así, si la imagen tiene un total de $m$ bloques, se obtiene una colección de vectores $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$, cada uno de dimensión $64 \times 1$. Estos vectores se organizan como filas en una matriz de datos $X$ de tamaño $m \times 64$ (en este caso $m = 2537$), donde cada fila representa un bloque vectorizado, una muestra de cada variable, y cada columna corresponde a una posición fija dentro del bloque (una variable).
 
 \vspace{1em}
 
-Para analizar la estructura estadística de los datos, primero se calcula el vector media $\boldsymbol{\mu}$, que contiene el promedio de cada columna de $X$. Matemáticamente, esto se expresa como:
+Para analizar la estructura estadística de los datos, primero se calcula el vector media $\boldsymbol{\mu}$, que contiene el promedio de cada columna de $X$. Esto se realiza mediante la función \texttt{mean\_estimator()}. Matemáticamente, esto se expresa como:
 \[
 \boldsymbol{\mu} = \frac{1}{m} \sum_{i=1}^m \mathbf{x}_i
 \]
-Luego, se centra la matriz de datos restando la media a cada fila, obteniendo así la matriz centrada $X_c = X - \mathbf{1}_m \boldsymbol{\mu}^T$, donde $\mathbf{1}_m$ es un vector columna de unos de dimensión $m$.
+Luego, se centra la matriz de datos restando la media a cada fila, obteniendo así la matriz centrada $X_c = X - \boldsymbol{\mu}^T$. Por como están los datos en la matriz $X$, la media se resta a cada fila, es decir, a cada bloque.
 
 \vspace{1em}
 
-El siguiente paso consiste en calcular la matriz de covarianza $C_X$, que describe cómo varían conjuntamente las distintas posiciones dentro de los bloques. Esta matriz se estima mediante:
+El siguiente paso consiste en calcular la matriz de covarianza $C_X$, que describe cómo varían conjuntamente las distintas posiciones dentro de los bloques. Esta matriz se estima mediante la función \texttt{cov\_estimator()}:
 \[
 C_X = \frac{1}{m-1} X_c^T X_c
 \]
@@ -150,7 +154,7 @@ Cada elemento $c_{ij}$ de $C_X$ representa la covarianza entre la posición $i$ 
 
 \vspace{1em}
 
-Para aplicar PCA, se resuelve el problema de autovalores y autovectores de la matriz de covarianza. Es decir, se buscan vectores $\mathbf{v}_j$ y escalares $\lambda_j$ que satisfagan:
+Para aplicar PCA, se utiliza la función \texttt{pca\_transform()}, que resuelve el problema de autovalores y autovectores de la matriz de covarianza. Es decir, se buscan vectores $\mathbf{v}_j$ y escalares $\lambda_j$ que satisfagan:
 \[
 C_X \mathbf{v}_j = \lambda_j \mathbf{v}_j
 \]
@@ -158,11 +162,11 @@ Los autovalores $\lambda_j$ se ordenan de mayor a menor, y se seleccionan los $k
 \[
 P = [\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k]
 \]
-La proyección de los datos originales sobre este subespacio de menor dimensión se obtiene multiplicando la matriz centrada $X_c$ por $P$, resultando en la matriz $Y$ de datos comprimidos:
+La proyección de los datos originales sobre este subespacio de menor dimensión se obtiene multiplicando la matriz centrada $X_c$ por $P$, resultando en la matriz $Y$ de datos comprimidos y descorrelacionados:
 \[
 Y = X_c P
 \]
-El número de componentes $k$ a conservar se determina en función del factor de compresión deseado. En el código, la función \texttt{space\_saving\_k(s, m)} calcula $k$ como:
+El número de componentes $k$ a conservar se determina en función del factor de compresión deseado, en este caso $s = 80\%$ se cumple con $k = 13$. Para visualizar cómo se seleccionan los componentes principales y cuánta información se conserva, se grafica el espectro de autovalores $\lambda_j$ (ver Figura~\ref{fig:eigvals2}), donde se destacan los autovalores conservados y descartados según el valor de $k$. En el código, la función \texttt{space\_saving\_k(s, m)} calcula $k$ como:
 \[
 k = \max\big(1, \min(m, \lceil m(1-s) \rceil)\big)
 \]
@@ -170,11 +174,20 @@ donde $s$ es el porcentaje de reducción elegido, con valores entre 0 y 1.
 
 \vspace{1em}
 
-Finalmente, para permitir la reconstrucción de la imagen comprimida, se almacenan la matriz $Y$ de datos comprimidos, la matriz de autovectores $P$ y el vector de medias $\boldsymbol{\mu}$. La reconstrucción aproximada de la imagen original se realiza aplicando la transformación inversa:
+Finalmente, para permitir la reconstrucción de la imagen comprimida, se almacenan la matriz $Y$ de datos comprimidos, la matriz de autovectores $P$ y el vector de medias $\boldsymbol{\mu}$. Esto se realiza con la función \texttt{save\_data()}. La reconstrucción aproximada de la imagen original se realiza aplicando la transformación inversa:
 \[
 \hat{X} = Y P^T + \mathbf{1}_m \boldsymbol{\mu}^T
 \]
-Además, se grafica el espectro de autovalores $\lambda_j$ para visualizar cuánta información se conserva y cuánta se descarta al reducir la dimensionalidad.
+Además, se grafican los autovalores $\lambda_j$ para visualizar cuánta información se conserva y cuánta se descarta al reducir la dimensionalidad, utilizando la función \texttt{plot\_eigenvalues()}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Ejercicio2.png}
+    \caption{Gráfico de dispersión de los autovalores de la matriz de covarianza para la imagen. En verde se muestran los $k$ autovalores conservados (componentes principales seleccionados) y en rojo los descartados, según el factor de compresión elegido.}
+    \label{fig:eigvals2}
+\end{figure}
+
 
 \newpage
 \section*{Ejercicio 3: Descompresión}
@@ -274,7 +287,7 @@ de la imagen y reducción de memoria.
 
 \vspace{1em}
 
-*problemas??*
+Los problemas a lo largo de este trabajo práctico fueron mínimos, consistindo principalmente en la eleccion de funciones de librerías para el cálculo de autovalores y autovectores, y en la implementación de las funciones de compresión y descompresión. Por lo que se tuvo que comprender el formato de los datos con los que trabajan estas librerías, llevando lo teorico a la práctica.
 
 \vspace{1em}
 
