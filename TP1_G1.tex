@@ -43,34 +43,117 @@
 
 
 \begin{abstract}
-La realización de este trabajo práctico tiene como objetivo aplicar el método de \textbf{Análisis de Componentes Principales (PCA)} en la compresión de imágenes. Se busca reducir el espacio de almacenamiento minimizando la pérdida de información, conservando los datos que contienen la mayor parte de la varianza. Posteriormente, se descomprime la imagen y se compara con la original para evaluar la calidad de la compresión, utilizando métricas objetivas. El desempeño se evalúa en función de la cantidad de componentes principales utilizados. Finalmente, se discuten los resultados y conclusiones obtenidas.
+La realización de este trabajo práctico tiene como objetivo aplicar el método de \textbf{Análisis de Componentes Principales (PCA)} en la compresión de imágenes. 
+Se busca reducir el espacio de almacenamiento minimizando la pérdida de información, conservando los datos que contienen la mayor parte de la varianza. 
+Posteriormente, se descomprime la imagen y se compara con la original para evaluar la calidad de la compresión, utilizando métricas objetivas. 
+El desempeño se evalúa en función de la cantidad de componentes principales utilizados. A pesar de ciertos inconvenientes atravesados con las librerías utilizadas para programar,
+lo cuál fue solucionado con la investigación acerca de ellas, no nos encontramos con mayores dificultades.
+En primer lugar, se analizó la correlación entre píxeles contiguos de una imagen, presentando una alta correlación ($\approx 1$) en la imagen con mayor suavidad.
+A comparación con otra imagen, con una mayor de ruido, en la cual obtuvimos una correlación más baja ($\approx 0.2$).
+Luego, llevó a el proceso de compresión y descompresión, utilizando el método de PCA. 
+En los resultados obtenidos, se puede observar el uso de la reducción de la la dimensionalidad en el ahorro almacenamiento, evitando comprometer la calidad la imagen.
+Se encuentra demostrado posteriormente, donde aumentar la cantidad de espacio ahorrado, la cantidad de de componentes principales disminuye,
+causando una disminución la calidad de la visualmente.
 \end{abstract}
 
 
-\section*{Introducción}
-\addcontentsline{toc}{section}{Introducción}
-En este informe se estudia la compresión y descompresión de imágenes mediante el método de Análisis de Componentes Principales (PCA). Se analizan las propiedades estadísticas de las imágenes, se implementa el proceso de compresión y reconstrucción, y se evalúa el desempeño en función de la calidad de la imagen reconstruida y el ahorro de espacio.
+
 \newpage
-\section*{Ejercicio 1: Correlación}
-\addcontentsline{toc}{section}{Ejercicio 1: Correlación}
+\section*{Introducción}
+\addcontentsline{toc}{subsection}{Introducción}
+El objetivo de este trabajo práctico es implementar y evaluar la compresión y descompresión de imágenes utilizando el método de Análisis de Componentes Principales (PCA).
+Para poder aplicar el método de PCA, convertimos los datos de la imagen en una matriz:
+\begin{equation}
+M \in \mathbb{R}^{m \times n}
+\label{eq:matrizM}
+\end{equation}
+donde cada fila corresponde a una muestra, obteniendo $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$, con $\mathbf{x}_i \in \mathbb{R}^{n \times 1}$.
+
+Luego se calcula la media de las $\mathbf{x}_i$:
+\begin{equation}
+\boldsymbol{\mu}_x = \frac{1}{m} \sum_{k=1}^m \mathbf{x}_{k}
+\label{eq:media}
+\end{equation}
+Obteniendo de esta forma el vector de media $\boldsymbol{\mu}_x \in \mathbb{R}^{n \times 1}$, que contiene el promedio de cada columna de $M$.
+
+Luego se centra la matriz de datos restando la media a cada fila, obteniendo así la matriz centrada:
+\begin{equation}
+X_c = X - \mathbf{1}_m \boldsymbol{\mu}_x^T
+\label{eq:centrado}
+\end{equation}
+Por como están los datos en la matriz $X$, la media se resta a cada fila, es decir, a cada bloque, usando el vector columna de unos $\mathbf{1}_m$.
+
+Además, calculamos la matriz de covarianza $C_X$, que describe cómo varían conjuntamente las distintas posiciones dentro de los bloques:
+\begin{equation}
+C_X = \frac{1}{m-1} X_c^T X_c
+\label{eq:covarianza}
+\end{equation}
+Cada elemento $c_{ij}$ de $C_X$ representa la covarianza entre la posición $i$ y la posición $j$ dentro de los bloques.
+Para aplicar PCA, se resuelve el problema de autovalores y autovectores de la matriz de covarianza.
+
+Obteniendo $P$ la matriz de autovectores, y $\lambda$ los autovalores asociados. Los cuales son ordenados y seleccionados los $k$ más grandes, que corresponden a las direcciones de mayor varianza en los datos. Los autovectores asociados se agrupan en la matriz de proyección:
+\begin{equation}
+P = \begin{bmatrix}
+| & | &        & | \\
+\mathbf{p}_1 & \mathbf{p}_2 & \cdots & \mathbf{p}_k \\
+| & | &        & |
+\end{bmatrix}
+\label{eq:autovectores}
+\end{equation}
+
+Luego se define la transformación de PCA como:
+\begin{equation}
+Y = X_c P
+\label{eq:pca}
+\end{equation}
+Donde $P$ proyecta los datos originales sobre este subespacio de menor dimensión, resultando en la matriz $Y$ de datos comprimidos y descorrelacionados. Así, $Y \in \mathbb{R}^{m \times k}$, donde cada fila es la representación comprimida de cada bloque original $\mathbf{y}_i \in \mathbb{R}^{k \times 1}$.
+
+Finalmente, para permitir la reconstrucción de la imagen comprimida, se almacenan la matriz $Y$ de datos comprimidos, la matriz de autovectores $P$ y el vector de medias $\boldsymbol{\mu}_x$. Esto se realiza con la función \texttt{save\_data()}. La reconstrucción aproximada de la imagen original se realiza aplicando la transformación inversa:
+\begin{equation}
+\hat{X} = Y P^T + \mathbf{1}_m \boldsymbol{\mu}_x^T
+\label{eq:reconstruccion}
+\end{equation}
+
+Para poder seleccionar el número de componentes principales $k$ a conservar, se define el porcentaje de espacio ahorrado $S$ como:
+\begin{equation}
+S = \left( 1 - \frac{\text{cantidad de componentes principales } (k)}{\text{cantidad de componentes totales } (m)} \right) \times 100 \%
+\label{eq:espacio}
+\end{equation}
+
+Para medir el rendimiento del procedimiento, calculamos el error cuadrático medio (MSE) entre la imagen original y la reconstruida. 
+\begin{equation}
+MSE = \frac{1}{N_w N_h} \sum_{i=1}^{N_w} \sum_{j=1}^{N_h} (p_{ij} - \hat{p}_{ij})^2
+\label{eq:mse}
+\end{equation}
+
+\newpage
+
+\section{Resultados y discusion:}
+\subsection*{Ejercicio 1: Correlación}
+\addcontentsline{toc}{subsection}{Ejercicio 1: Correlación}
 El propósito de este ejercicio es analizar el comportamiento de los píxeles vecinos en las imágenes utilizadas. En primer lugar, se cargan las imágenes y se convierten a escala de grises. Luego, se divide cada imagen en bloques de 2x1 píxeles contiguos verticalmente. A continuación, se calcula la correlación entre los píxeles de cada bloque y se almacena en un vector. Finalmente, se realiza un gráfico de dispersión de las correlaciones obtenidas para cada imagen. Los resultados se presentan a continuación:
+
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Ejercicio1a.png}
-    \caption{Imagen 1, gráfico de dispersión de la correlación de píxeles contiguos verticalmente}
+        \caption{Gráfico de dispersión de la correlación de píxeles contiguos verticalmente de la imagen 1. 
+    Se observa que los puntos se alinean en torno a una recta creciente. Es el resultado que esperabamos
+    ya que los pixeles vecinos tienen colores similares.}
+    
     \captionsetup{belowskip=0pt}
-    \label{fig:correlacion1}
 \end{figure}
 \vspace{-1em}
-Analizando el comportamiento del gráfico, los puntos se alinean en torno a una recta creciente, lo cual indica una fuerte correlación positiva entre los píxeles.
+Analizando el comportamiento del gráfico, la alineacion de los puntos indica una fuerte correlación positiva entre los píxeles.
 El resultado se debe a que, la imagen presenta suavidad, el color de los píxeles vecinos se asemeja.
 Por otro lado, los resultados de la segunda imagen son los siguientes:
 \vspace{-1em}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Ejercicio1b.png}
-    \caption{Imagen 2, gráfico de dispersión de la correlación de píxeles contiguos verticalmente}
+    \ \caption{Gráfico de dispersión de la correlación de píxeles contiguos verticalmente de la imagen 2. 
+    Se observa que los puntos se encuentran dispersos. Es lo que esperabamos ya que los colores de los pixeles
+    vecinos no son similares.}
     \captionsetup{belowskip=0pt}
     \label{fig:correlacion2}
 \end{figure}
@@ -97,13 +180,7 @@ Evitando perder la calidad de la imagen. En cambio, en la imagen 2, la falta de 
 \vspace{1em}
 
 Por último, se pide una transformación que descorrelacione las variables.
-Se utiliza la transformación de descorrelación de PCA:
-
-\vspace{1em}
-
-\[
-Y = P^T X
-\]
+Se utiliza la transformación de descorrelación de PCA, (ver Ecuación~\ref{eq:pca})
 De esta forma, \(Y\) es la proyección de \(X\) en el espacio de autovectores de \(C_X\).
 
 Nuevamente, se hace uso de un gráfico de dispersión por imagen, dando los siguientes resultados:
@@ -111,87 +188,60 @@ Nuevamente, se hace uso de un gráfico de dispersión por imagen, dando los sigu
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Ejercicio1c.png}
-    \caption{Imagen 1, gráfico de dispersión de la descorrelación de píxeles contiguos verticalmente}
+    \caption{Imagen 1, gráfico de dispersión de la descorrelación de píxeles contiguos verticalmente. Se observa que los píxeles se concentran en el eje vertical Y1, lo que indica que el proceso de descorrelación fue exitoso.}
     \label{fig:descorrelacion1}
 \end{figure}
 \vspace{-1em}
-Podemos observar en la primera imagen cómo los píxeles se encuentran concentrados en el eje vertical Y2, el proceso de descorrelación resulta exitoso.
+Podemos observar en la primera imagen cómo los píxeles se encuentran concentrados en el eje vertical Y1, el proceso de descorrelación resulta exitoso.
 \vspace{-1em}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Ejercicio1d.png}
-    \caption{Imagen 2, gráfico de dispersión de la descorrelación de píxeles contiguos verticalmente}
+    \caption{Imagen 2, gráfico de dispersión de la descorrelación de píxeles contiguos verticalmente. El grafico no se concentra entorno a ningun eje, mantiene una forma dispersa.}
     \label{fig:descorrelacion2}
 \end{figure}
 
 Por otro lado, en la segunda imagen, el gráfico se mantiene en forma de una nube, como en la Figura 2, demostrando la falta de correlación inicial.
 \newpage
-\section*{Ejercicio 2: Compresión}
-\addcontentsline{toc}{section}{Ejercicio 2: Compresión}
 
 
-El objetivo de este ejercicio es transformar la información contenida en la imagen, originalmente de alta dimensión, en una representación más compacta que conserve la mayor parte de la información relevante.
-
-\vspace{1em}
-
-El proceso comienza dividiendo la imagen en bloques de 8x8 píxeles, por lo que se tuvo que recortar la imagen de modo que quedara un tamaño múltiplo de 8. Para esto, se utilizó la función \texttt{image\_to\_list\_x()}, que recorre cada bloque por columnas y lo convierte en un vector columna de 64 elementos. Así, si la imagen tiene un total de $m$ bloques, se obtiene una colección de vectores $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$, cada uno de dimensión $64 \times 1$. Estos vectores se organizan como filas en una matriz de datos $X$ de tamaño $m \times 64$ (en este caso $m = 2537$), donde cada fila representa un bloque vectorizado, una muestra de cada variable, y cada columna corresponde a una posición fija dentro del bloque (una variable).
+\subsection*{Ejercicio 2: Compresión}
+\addcontentsline{toc}{subsection}{Ejercicio 2: Compresión}
 
 \vspace{1em}
 
-Para analizar la estructura estadística de los datos, primero se calcula el vector media $\boldsymbol{\mu}$, que contiene el promedio de cada columna de $X$. Esto se realiza mediante la función \texttt{mean\_estimator()}. Matemáticamente, esto se expresa como:
-\[
-\boldsymbol{\mu} = \frac{1}{m} \sum_{i=1}^m \mathbf{x}_i
-\]
-Luego, se centra la matriz de datos restando la media a cada fila, obteniendo así la matriz centrada $X_c = X - \boldsymbol{\mu}^T$. Por como están los datos en la matriz $X$, la media se resta a cada fila, es decir, a cada bloque.
+
+Para analizar la estructura estadística de los datos, primero se calcula el vector media $\boldsymbol{\mu}$, que contiene el promedio de cada columna de $X$, como se muestra en la Ecuación~\ref{eq:media} de la introducción. Esto se realiza mediante la función \texttt{mean\_estimator()}.
+
+Luego, se centra la matriz de datos restando la media a cada fila, obteniendo así la matriz centrada $X_c$, según la Ecuación~\ref{eq:centrado}. Por como están los datos en la matriz $X$, la media se resta a cada fila, es decir, a cada bloque.
 
 \vspace{1em}
 
-El siguiente paso consiste en calcular la matriz de covarianza $C_X$, que describe cómo varían conjuntamente las distintas posiciones dentro de los bloques. Esta matriz se estima mediante la función \texttt{cov\_estimator()}:
-\[
-C_X = \frac{1}{m-1} X_c^T X_c
-\]
-Cada elemento $c_{ij}$ de $C_X$ representa la covarianza entre la posición $i$ y la posición $j$ dentro de los bloques.
+
+
+Para aplicar PCA, se utiliza la función \texttt{pca\_transform()}, que resuelve el problema de autovalores y autovectores de la matriz de covarianza, como se define en la Ecuación~\ref{eq:covarianza}. Es decir, se buscan vectores propios y valores propios de $C_X$.
+
+Los autovectores seleccionados se agrupan en la matriz de proyección $P$ (ver Ecuación~\ref{eq:autovectores}), y la proyección de los datos originales sobre este subespacio de menor dimensión se obtiene multiplicando la matriz centrada $X_c$ por $P$, resultando en la matriz $Y$ de datos comprimidos y descorrelacionados, según la Ecuación~\ref{eq:pca}.
+
+El número de componentes $k$ a conservar se determina en función del factor de compresión deseado, y el porcentaje de espacio ahorrado $S$ se calcula como en la Ecuación~\ref{eq:espacio}.
 
 \vspace{1em}
 
-Para aplicar PCA, se utiliza la función \texttt{pca\_transform()}, que resuelve el problema de autovalores y autovectores de la matriz de covarianza. Es decir, se buscan vectores $\mathbf{v}_j$ y escalares $\lambda_j$ que satisfagan:
-\[
-C_X \mathbf{v}_j = \lambda_j \mathbf{v}_j
-\]
-Los autovalores $\lambda_j$ se ordenan de mayor a menor, y se seleccionan los $k$ más grandes, que corresponden a las direcciones de mayor varianza en los datos. Los autovectores asociados se agrupan en la matriz de proyección $P$:
-\[
-P = [\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k]
-\]
-La proyección de los datos originales sobre este subespacio de menor dimensión se obtiene multiplicando la matriz centrada $X_c$ por $P$, resultando en la matriz $Y$ de datos comprimidos y descorrelacionados:
-\[
-Y = X_c P
-\]
-El número de componentes $k$ a conservar se determina en función del factor de compresión deseado, en este caso $s = 80\%$ se cumple con $k = 13$. Para visualizar cómo se seleccionan los componentes principales y cuánta información se conserva, se grafica el espectro de autovalores $\lambda_j$ (ver Figura~\ref{fig:eigvals2}), donde se destacan los autovalores conservados y descartados según el valor de $k$. En el código, la función \texttt{space\_saving\_k(s, m)} calcula $k$ como:
-\[
-k = \max\big(1, \min(m, \lceil m(1-s) \rceil)\big)
-\]
-donde $s$ es el porcentaje de reducción elegido, con valores entre 0 y 1.
 
-\vspace{1em}
-
-Finalmente, para permitir la reconstrucción de la imagen comprimida, se almacenan la matriz $Y$ de datos comprimidos, la matriz de autovectores $P$ y el vector de medias $\boldsymbol{\mu}$. Esto se realiza con la función \texttt{save\_data()}. La reconstrucción aproximada de la imagen original se realiza aplicando la transformación inversa:
-\[
-\hat{X} = Y P^T + \mathbf{1}_m \boldsymbol{\mu}^T
-\]
-Además, se grafican los autovalores $\lambda_j$ para visualizar cuánta información se conserva y cuánta se descarta al reducir la dimensionalidad, utilizando la función \texttt{plot\_eigenvalues()}.
+Además, se grafican los autovalores $\lambda_{j}$ para visualizar cuánta información se conserva y cuánta se descarta al reducir la dimensionalidad, utilizando la función \texttt{plot\_eigenvalues()}.
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Ejercicio2.png}
-    \caption{Gráfico de dispersión de los autovalores de la matriz de covarianza para la imagen. En verde se muestran los $k$ autovalores conservados (componentes principales seleccionados) y en rojo los descartados, según el factor de compresión elegido.}
+    \caption{Gráfico de dispersión de los autovalores de la matriz de covarianza. En verde se muestran los $k$ autovalores conservados (componentes principales seleccionados) y en rojo los descartados, según el factor de compresión elegido. Se conservan 13 autovalores mientras que se descartan 51}
     \label{fig:eigvals2}
 \end{figure}
 
 
 \newpage
-\section*{Ejercicio 3: Descompresión}
-\addcontentsline{toc}{section}{Ejercicio 3: Descompresión}
+\subsection*{Ejercicio 3: Descompresión}
+\addcontentsline{toc}{subsection}{Ejercicio 3: Descompresión}
 
 Luego de lo realizado en el Ejercicio 2, se realiza la reconstrucción de la imagen comprimida utilizando el proceso inverso del PCA de compresión, para descomprimir.
 A través del Ejercicio 2, se obtienen los siguientes datos de la imagen:
@@ -202,66 +252,43 @@ Vectores \(y_i\) (\(Y\)), la matriz de autovectores (\(P\)) y la media \(\mu_X\)
 
 \vspace{1em}
 
-Una vez obtenida la información indicada, se aplica la proyección inversa del PCA, para obtener los vectores \(x_i\) aproximados:
-
-\vspace{1em}
-
-\[
-X = Y P^T + \mu
-\]
-donde \(X\) es la matriz original, \(Y\) es la matriz proyectada, \(P\) son los autovectores y \(\mu\) es la media.
-
-\vspace{1em}
-
-Finalmente, se recorre una matriz vacía, del tamaño necesario de la imagen, completando con los bloques de la imagen reconstruida.
+Una vez obtenida la información indicada, se aplica la proyección inversa del PCA para obtener los vectores $x_i$ aproximados, utilizando la Ecuación~\ref{eq:reconstruccion} de la introducción.
 De esta manera, obtenemos los siguientes resultados:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Ejercicio3.png}
-    \caption{Imagen reconstruida a través del proceso de PCA inverso.}
+    \caption{Imagen reconstruida a través del proceso de PCA inverso. Se observan lineas negras en los bordes derecho e inferior, debido a que tomamos bloques de 8x8, mientras que la cantidad de pixeles de la imagen original no es multiplo de 8.}
     \label{fig:ej3}
 \end{figure}
 
 Podemos notar el borde negro de la imagen reconstruida, lo cual sucede al no poder completar bloques de exactamente 8 * 8 al comprimir la imagen.
 Adicionalmente, podemos observar una diferencia entre las imágenes o pérdida de nitidez, atribuida a la reducción de la dimensionalidad y la eliminación de componentes de menor varianza.
 
-\newpage
-\section*{Ejercicio 4: Medidas de desempeño}
-\addcontentsline{toc}{section}{Ejercicio 4: Medidas de desempeño}
-El objetivo de este ejercicio es evaluar el desempeño de la compresión de imágenes al variar el espacio ahorrado (S). 
+\subsection*{Ejercicio 4: Medidas de desempeño}
+\addcontentsline{toc}{subsection}{Ejercicio 4: Medidas de desempeño}
 
-\begin{equation}
-S = \left( 1 - \frac{\text{cantidad de componentes principales } (k)}{\text{cantidad de componentes totales } (m)} \right) \times 100 \%
-\end{equation}
+El objetivo de este ejercicio es evaluar el desempeño de la compresión de imágenes al variar el espacio ahorrado $S$, definido en la Ecuación~\ref{eq:espacio}.
 
-En primer lugar, para cada porcentaje de espacio ahorrado comprimimos una imagen y la reconstruimos. Luego, para 
-medir el rendimiento del procedimiento, calculamos el error cuadrático medio (MSE) entre la imagen original y 
-la reconstruida. 
-\begin{equation}
-MSE = \frac{1}{N_w N_h} \sum_{i=1}^{N_w} \sum_{j=1}^{N_h} (p_{ij} - \hat{p}_{ij})^2
-\end{equation}
+En primer lugar, para cada porcentaje de espacio ahorrado comprimimos una imagen y la reconstruimos.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Ejercicio 4a.png}
-    \caption{Gráfico MSE vs S}
+    \includegraphics[width=0.6\textwidth]{Ejercicio 4a.png}
+    \caption{Gráfico de MSE vs el espacio ahorrado. En el grafico, se observa que el errror cuadratico medio aumenta a 
+    medida que lo hace el espacio ahorrado. Este resultado es coherente ya que al descartar un mayor numero de componentes principales, 
+    se pierde mas informacion de la imagen.}
     \label{fig:ej4}
 \end{figure}
 
-En el gráfico, se observa que el error cuadrático medio aumenta a medida que lo hace el espacio ahorrado.
-Este resultado es coherente, ya que al descartar un mayor número de componentes principales se pierde más 
-información de la imagen. 
-Sin embargo, esta relación no es proporcional: el error crece considerablemente a partir de un espacio 
-ahorrado del 80\%. Al superar ese porcentaje, la pérdida de información se vuelve significativa, 
-impactando notablemente en la calidad de la imagen. 
-
+En el gráfico, se observa que el error cuadrático medio (MSE), calculado según la Ecuación~\ref{eq:mse}, aumenta a medida que lo hace el espacio ahorrado.
+Sin embargo, esta relación no es proporcional: el error crece considerablemente a partir de un espacio ahorrado del 80\%. Al superar ese porcentaje, la pérdida de información se vuelve significativa, impactando notablemente en la calidad de la imagen. 
 
 Para ilustrarlo, incluimos algunas imágenes para diferentes porcentajes de espacio ahorrado. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Ejercicio 4b.png}
-    \caption{Imagen original vs las reconstruidas para diferentes S.}
+    \includegraphics[width=0.95\textwidth]{Ejercicio 4b.png}
+    \caption{Imagen original vs las reconstruidas para diferentes S. Las imagenes van perdiendo nitidez a medida que aumenta el porcentaje de espacio ahorrado.}
     \label{fig:ej4b}
 \end{figure}
 
@@ -269,8 +296,8 @@ Vemos que a medida que S aumenta, la imagen reconstruida pierde nitidez. La redu
 componentes principales se ve en una disminución de la calidad de la imagen. 
 
 \newpage
-\section*{Conclusiones}
-\addcontentsline{toc}{section}{Conclusiones}
+\subsection*{Conclusiones}
+\addcontentsline{toc}{subsection}{Conclusiones}
 En este trabajo práctico implementamos y evaluamos la compresión de imágenes usando 
 PCA (Análisis de Componentes Principales). Este permite reducir la dimensión de los datos
 al descartar las componentes de menor varianza, quedándose con las componentes principales, 
