@@ -265,11 +265,21 @@ De esta manera, obtenemos los siguientes resultados:
 Podemos notar el borde negro de la imagen reconstruida, lo cual sucede al no poder completar bloques de exactamente 8 * 8 al comprimir la imagen.
 Adicionalmente, podemos observar una diferencia entre las imágenes o pérdida de nitidez, atribuida a la reducción de la dimensionalidad y la eliminación de componentes de menor varianza.
 
+<<<<<<< HEAD
 \vspace{0.5em}
+=======
+\newpage
+\section*{Ejercicio 4: Medidas de desempeño}
+\addcontentsline{toc}{section}{Ejercicio 4: Medidas de desempeño}
+El objetivo de este ejercicio es evaluar el desempeño de la compresión de imágenes al variar el espacio ahorrado (S) (1). 
+
+\vspace{1em}
+>>>>>>> bd43e25d04d35a82d222be3772546cd9b3ba1e87
 
 \subsection*{Ejercicio 4: Medidas de desempeño}
 \addcontentsline{toc}{subsection}{Ejercicio 4: Medidas de desempeño}
 
+<<<<<<< HEAD
 El objetivo de este ejercicio es evaluar el desempeño de la compresión de imágenes al variar el espacio ahorrado $S$, definido en la Ecuación~\ref{eq:espacio}.
 
 En primer lugar, para cada porcentaje de espacio ahorrado comprimimos una imagen y la reconstruimos.
@@ -285,6 +295,35 @@ En primer lugar, para cada porcentaje de espacio ahorrado comprimimos una imagen
 
 En el gráfico, se observa que el error cuadrático medio (MSE), calculado según la Ecuación~\ref{eq:mse}, aumenta a medida que lo hace el espacio ahorrado.
 Sin embargo, esta relación no es proporcional: el error crece considerablemente a partir de un espacio ahorrado del 80\%. Al superar ese porcentaje, la pérdida de información se vuelve significativa, impactando notablemente en la calidad de la imagen. 
+=======
+\vspace{1em}
+
+En primer lugar, para cada porcentaje de espacio ahorrado comprimimos una imagen y la reconstruimos. Luego, para 
+medir el rendimiento del procedimiento, calculamos el error cuadrático medio (MSE) (2) entre la imagen original y 
+la reconstruida. 
+
+\vspace{1em}
+
+\begin{equation}
+MSE = \frac{1}{N_w N_h} \sum_{i=1}^{N_w} \sum_{j=1}^{N_h} (p_{ij} - \hat{p}_{ij})^2
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Ejercicio 4a.png}
+    \caption{Relación entre el MSE y el porcentaje de espacio ahorrado.}
+    \label{fig:ej4}
+\end{figure}
+
+En el gráfico, se observa que el error cuadrático medio aumenta a medida que lo hace el espacio ahorrado.
+Este resultado es coherente, ya que al descartar un mayor número de componentes principales se pierde más 
+información de la imagen.
+Sin embargo, esta relación no es proporcional: el error crece considerablemente a partir de un espacio 
+ahorrado del 80\%. Al superar ese porcentaje, la pérdida de información se vuelve significativa, 
+impactando notablemente en la calidad de la imagen. 
+
+\vspace{1em}
+>>>>>>> bd43e25d04d35a82d222be3772546cd9b3ba1e87
 
 Para ilustrarlo, incluimos algunas imágenes para diferentes porcentajes de espacio ahorrado. 
 \begin{figure}[H]
@@ -316,7 +355,10 @@ de la imagen y reducción de memoria.
 
 \vspace{1em}
 
-Los problemas a lo largo de este trabajo práctico fueron mínimos, consistindo principalmente en la eleccion de funciones de librerías para el cálculo de autovalores y autovectores, y en la implementación de las funciones de compresión y descompresión. Por lo que se tuvo que comprender el formato de los datos con los que trabajan estas librerías, llevando lo teorico a la práctica.
+Los problemas a lo largo de este trabajo práctico fueron mínimos, consistindo principalmente en 
+la eleccion de funciones de librerías para el cálculo de autovalores y autovectores, y en la 
+implementación de las funciones de compresión y descompresión. Por lo que se tuvo que comprender 
+el formato de los datos con los que trabajan estas librerías, llevando lo teorico a la práctica.
 
 \vspace{1em}
 
