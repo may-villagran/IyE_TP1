@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2 NEXT) (preloaded format=pdflatex 2025.9.6)  8 SEP 2025 20:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2 NEXT) (preloaded format=pdflatex 2025.9.6)  8 SEP 2025 20:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -557,21 +557,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[3]
-<Ejercicio1a.png, id=69, 859.2903pt x 426.393pt>
-File: Ejercicio1a.png Graphic file (type png)
+(fancyhdr)                Mag)
 <use Ejercicio1a.png>
-Package pdftex.def Info: Ejercicio1a.png  used on input line 139.
+Package pdftex.def Info: Ejercicio1a.png  used on input line 101.
 (pdftex.def)             Requested size: 455.24411pt x 225.89612pt.
-<Ejercicio1b.png, id=71, 859.2903pt x 426.393pt>
+<Ejercicio1b.png, id=54, 859.2903pt x 426.393pt>
 File: Ejercicio1b.png Graphic file (type png)
 <use Ejercicio1b.png>
-Package pdftex.def Info: Ejercicio1b.png  used on input line 153.
+Package pdftex.def Info: Ejercicio1b.png  used on input line 115.
 (pdftex.def)             Requested size: 455.24411pt x 225.89612pt.
 
 
@@ -582,11 +575,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4 <./Ejercicio1a.png>]
-<Ejercicio1c.png, id=79, 500.8311pt x 396.0396pt>
+[3 <./Ejercicio1a.png>]
+<Ejercicio1c.png, id=61, 500.8311pt x 396.0396pt>
 File: Ejercicio1c.png Graphic file (type png)
 <use Ejercicio1c.png>
-Package pdftex.def Info: Ejercicio1c.png  used on input line 190.
+Package pdftex.def Info: Ejercicio1c.png  used on input line 158.
 (pdftex.def)             Requested size: 318.66948pt x 251.996pt.
 
 
@@ -597,11 +590,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5 <./Ejercicio1b.png>]
-<Ejercicio1d.png, id=88, 500.8311pt x 396.0396pt>
+[4 <./Ejercicio1b.png>]
+<Ejercicio1d.png, id=70, 500.8311pt x 396.0396pt>
 File: Ejercicio1d.png Graphic file (type png)
 <use Ejercicio1d.png>
-Package pdftex.def Info: Ejercicio1d.png  used on input line 199.
+Package pdftex.def Info: Ejercicio1d.png  used on input line 169.
 (pdftex.def)             Requested size: 318.66948pt x 251.996pt.
 
 
@@ -612,17 +605,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6 <./Ejercicio1c.png> <./Ejercicio1d.png>]
-Overfull \hbox (8.17596pt too wide) in paragraph at lines 231--232
+[5 <./Ejercicio1c.png> <./Ejercicio1d.png>]
+Overfull \hbox (8.17596pt too wide) in paragraph at lines 223--225
 \OT1/cmr/m/n/12 cu^^Santa se des-car-ta al re-du-cir la di-men-sio-na-li-dad, u
 ti-li-zan-do la fun-ci^^Son \OT1/cmtt/m/n/12 plot[]eigenvalues()\OT1/cmr/m/n/12
  . 
  []
 
-<Ejercicio2.png, id=103, 515.2851pt x 285.4665pt>
+<Ejercicio2.png, id=80, 515.2851pt x 285.4665pt>
 File: Ejercicio2.png Graphic file (type png)
 <use Ejercicio2.png>
-Package pdftex.def Info: Ejercicio2.png  used on input line 236.
+Package pdftex.def Info: Ejercicio2.png  used on input line 229.
 (pdftex.def)             Requested size: 318.66948pt x 176.53873pt.
 
 
@@ -633,16 +626,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
+[6]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
 [7 <./Ejercicio2.png>]
-<Ejercicio3.png, id=112, 573.8238pt x 217.5327pt>
-File: Ejercicio3.png Graphic file (type png)
-<use Ejercicio3.png>
-Package pdftex.def Info: Ejercicio3.png  used on input line 260.
-(pdftex.def)             Requested size: 455.24411pt x 172.58249pt.
+! Extra }, or forgotten \endgroup.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.268 \end{figure}
+                  
+? ef)             Requested size: 455.24411pt x 172.58249pt.
 <Ejercicio 4a.png, id=114, 462.528pt x 346.896pt>
 File: Ejercicio 4a.png Graphic file (type png)
 <use Ejercicio 4a.png>
-Package pdftex.def Info: Ejercicio 4a.png  used on input line 277.
+Package pdftex.def Info: Ejercicio 4a.png  used on input line 279.
 (pdftex.def)             Requested size: 273.14923pt x 204.87329pt.
 
 
@@ -657,7 +660,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <Ejercicio 4b.png, id=122, 859.2903pt x 480.5955pt>
 File: Ejercicio 4b.png Graphic file (type png)
 <use Ejercicio 4b.png>
-Package pdftex.def Info: Ejercicio 4b.png  used on input line 290.
+Package pdftex.def Info: Ejercicio 4b.png  used on input line 292.
 (pdftex.def)             Requested size: 432.48051pt x 241.88115pt.
 
 
@@ -695,7 +698,7 @@ Here is how much of TeX's memory you used:
  42151 multiletter control sequences out of 15000+600000
  638984 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,556b,487s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,556b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -714,7 +717,7 @@ type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/mayle/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/mayle/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/mayle/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on TP1_G1.pdf (10 pages, 1620821 bytes).
+Output written on TP1_G1.pdf (10 pages, 1620623 bytes).
 PDF statistics:
  213 PDF objects out of 1000 (max. 8388607)
  37 named destinations out of 1000 (max. 500000)

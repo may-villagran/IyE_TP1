@@ -189,7 +189,6 @@ INPUT C:\Users\mayle\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cme
 INPUT C:\Users\mayle\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
 INPUT C:\Users\mayle\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy8.tfm
 INPUT C:\Users\mayle\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy6.tfm
-INPUT C:\Users\mayle\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
 INPUT C:\Users\mayle\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT .\Ejercicio1a.png
 INPUT .\Ejercicio1a.png
@@ -219,6 +218,7 @@ INPUT .\Ejercicio1d.png
 INPUT .\Ejercicio1d.png
 INPUT .\Ejercicio1d.png
 INPUT .\Ejercicio1d.png
+INPUT C:\Users\mayle\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
 INPUT .\Ejercicio2.png
 INPUT .\Ejercicio2.png
 INPUT .\Ejercicio2.png

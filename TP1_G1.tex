@@ -49,7 +49,7 @@ Posteriormente, se descomprime la imagen y se compara con la original para evalu
 El desempeño se evalúa en función de la cantidad de componentes principales utilizados. A pesar de ciertos inconvenientes atravesados con las librerías utilizadas para programar,
 lo cuál fue solucionado con la investigación acerca de ellas, no nos encontramos con mayores dificultades.
 En primer lugar, se analizó la correlación entre píxeles contiguos de una imagen, presentando una alta correlación ($\approx 1$) en la imagen con mayor suavidad.
-A comparación con otra imagen, con una mayor de ruido, en la cual obtuvimos una correlación más baja ($\approx 0.2$).
+A comparación con otra imagen, con una mayor cantidad de ruido, en la cual obtuvimos una correlación más baja ($\approx 0.2$).
 Luego, llevó a el proceso de compresión y descompresión, utilizando el método de PCA. 
 En los resultados obtenidos, se puede observar el uso de la reducción de la la dimensionalidad en el ahorro almacenamiento, evitando comprometer la calidad la imagen.
 Se encuentra demostrado posteriormente, donde aumentar la cantidad de espacio ahorrado, la cantidad de de componentes principales disminuye,
@@ -62,14 +62,14 @@ causando una disminución la calidad de la visualmente.
 \section*{Introducción}
 \addcontentsline{toc}{subsection}{Introducción}
 El objetivo de este trabajo práctico es implementar y evaluar la compresión y descompresión de imágenes utilizando el método de Análisis de Componentes Principales (PCA).
-Para poder aplicar el método de PCA, convertimos los datos de la imagen en una matriz:
+Para poder aplicar el método de PCA, en primer instancia fue necesario convertir los datos de la imagen en una matriz:
 \begin{equation}
 M \in \mathbb{R}^{m \times n}
 \label{eq:matrizM}
 \end{equation}
-donde cada fila corresponde a una muestra, obteniendo $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$, con $\mathbf{x}_i \in \mathbb{R}^{n \times 1}$.
+en donde cada fila corresponde a una muestra, obteniendo $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_m$, con $\mathbf{x}_i \in \mathbb{R}^{n \times 1}$.
 
-Luego se calcula la media de las $\mathbf{x}_i$:
+Además, se calcula la media de las $\mathbf{x}_i$, con el fin de centrar los datos:
 \begin{equation}
 \boldsymbol{\mu}_x = \frac{1}{m} \sum_{k=1}^m \mathbf{x}_{k}
 \label{eq:media}
@@ -83,15 +83,15 @@ X_c = X - \mathbf{1}_m \boldsymbol{\mu}_x^T
 \end{equation}
 Por como están los datos en la matriz $X$, la media se resta a cada fila, es decir, a cada bloque, usando el vector columna de unos $\mathbf{1}_m$.
 
-Además, calculamos la matriz de covarianza $C_X$, que describe cómo varían conjuntamente las distintas posiciones dentro de los bloques:
+Además, calculamos la matriz de covarianza $C_X$, que describe cómo varían conjuntamente las distintas posiciones dentro de los bloques. 
 \begin{equation}
 C_X = \frac{1}{m-1} X_c^T X_c
 \label{eq:covarianza}
 \end{equation}
 Cada elemento $c_{ij}$ de $C_X$ representa la covarianza entre la posición $i$ y la posición $j$ dentro de los bloques.
-Para aplicar PCA, se resuelve el problema de autovalores y autovectores de la matriz de covarianza.
 
-Obteniendo $P$ la matriz de autovectores, y $\lambda$ los autovalores asociados. Los cuales son ordenados y seleccionados los $k$ más grandes, que corresponden a las direcciones de mayor varianza en los datos. Los autovectores asociados se agrupan en la matriz de proyección:
+Para aplicar PCA, se resuelve el problema de autovalores y autovectores de la matriz de covarianza.
+Así es como se obtiene $P$ la matriz de autovectores, y $\lambda$ los autovalores asociados. Los cuales son ordenados, para luego seleccionar los $k$ más grandes, que corresponden a las direcciones de mayor varianza en los datos. Los autovectores asociados se agrupan en la matriz de proyección:
 \begin{equation}
 P = \begin{bmatrix}
 | & | &        & | \\
@@ -101,14 +101,14 @@ P = \begin{bmatrix}
 \label{eq:autovectores}
 \end{equation}
 
-Luego se define la transformación de PCA como:
+Finalmente, se define la transformación de PCA de la siguiente manera:
 \begin{equation}
 Y = X_c P
 \label{eq:pca}
 \end{equation}
 Donde $P$ proyecta los datos originales sobre este subespacio de menor dimensión, resultando en la matriz $Y$ de datos comprimidos y descorrelacionados. Así, $Y \in \mathbb{R}^{m \times k}$, donde cada fila es la representación comprimida de cada bloque original $\mathbf{y}_i \in \mathbb{R}^{k \times 1}$.
 
-Finalmente, para permitir la reconstrucción de la imagen comprimida, se almacenan la matriz $Y$ de datos comprimidos, la matriz de autovectores $P$ y el vector de medias $\boldsymbol{\mu}_x$. Esto se realiza con la función \texttt{save\_data()}. La reconstrucción aproximada de la imagen original se realiza aplicando la transformación inversa:
+Para la instancia de reconstrucción, se almacenan la matriz $Y$ de datos comprimidos, la matriz de autovectores $P$ y el vector de medias $\boldsymbol{\mu}_x$. La reconstrucción aproximada de la imagen original se realiza aplicando la transformación inversa:
 \begin{equation}
 \hat{X} = Y P^T + \mathbf{1}_m \boldsymbol{\mu}_x^T
 \label{eq:reconstruccion}
@@ -120,7 +120,7 @@ S = \left( 1 - \frac{\text{cantidad de componentes principales } (k)}{\text{cant
 \label{eq:espacio}
 \end{equation}
 
-Para medir el rendimiento del procedimiento, calculamos el error cuadrático medio (MSE) entre la imagen original y la reconstruida. 
+El rendimiento del procedimiento se evalúa calculando el error cuadrático medio (MSE) entre la imagen original y la reconstruida. 
 \begin{equation}
 MSE = \frac{1}{N_w N_h} \sum_{i=1}^{N_w} \sum_{j=1}^{N_h} (p_{ij} - \hat{p}_{ij})^2
 \label{eq:mse}
@@ -264,6 +264,8 @@ De esta manera, obtenemos los siguientes resultados:
 
 Podemos notar el borde negro de la imagen reconstruida, lo cual sucede al no poder completar bloques de exactamente 8 * 8 al comprimir la imagen.
 Adicionalmente, podemos observar una diferencia entre las imágenes o pérdida de nitidez, atribuida a la reducción de la dimensionalidad y la eliminación de componentes de menor varianza.
+
+\vspace{0.5em}
 
 \subsection*{Ejercicio 4: Medidas de desempeño}
 \addcontentsline{toc}{subsection}{Ejercicio 4: Medidas de desempeño}

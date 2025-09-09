@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1757373445.49422 "c:/Users/mayle/Documents/Udesa_/4_semestre/IE/TP_N1/TP1_G1.tex" "TP1_G1.pdf" "TP1_G1" 1757373446.73908 0
+["pdflatex"] 1757375769.86333 "c:/Users/mayle/Documents/Udesa_/4_semestre/IE/TP_N1/TP1_G1.tex" "TP1_G1.pdf" "TP1_G1" 1757375771.32697 0
   "C:/Users/mayle/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1757205631 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/mayle/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1757205763 13257342 60786e8b53ce268995f44b66ab419e50 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1233951848 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -117,10 +117,10 @@
   "Ejercicio1d.png" 1757204956 84451 ce36de8bc1f41ed6d592d6564a20c190 ""
   "Ejercicio2.png" 1757206896 34848 3d073e11eacdb7449724ba683801c66a ""
   "Ejercicio3.png" 1757071676 187602 97f847ef0862ecda20c40f40346d28f3 ""
-  "TP1_G1.aux" 1757373446 6440 e8dfb03c14903a2bb58c30a6d28dc7a9 "pdflatex"
-  "TP1_G1.out" 1757373446 1170 1f76d9a67b1b08341a798c45d6859e5e "pdflatex"
-  "TP1_G1.tex" 1757373445 18235 2f7a057f271daf9555a1a74054a9e703 ""
-  "c:/Users/mayle/Documents/Udesa_/4_semestre/IE/TP_N1/TP1_G1.tex" 1757373445 18235 2f7a057f271daf9555a1a74054a9e703 ""
+  "TP1_G1.aux" 1757375771 6440 e8dfb03c14903a2bb58c30a6d28dc7a9 "pdflatex"
+  "TP1_G1.out" 1757375771 1170 1f76d9a67b1b08341a798c45d6859e5e "pdflatex"
+  "TP1_G1.tex" 1757375769 18291 7a0106c7ac1f839cac49ed6b2a71ddf2 ""
+  "c:/Users/mayle/Documents/Udesa_/4_semestre/IE/TP_N1/TP1_G1.tex" 1757375769 18291 7a0106c7ac1f839cac49ed6b2a71ddf2 ""
   (generated)
   "TP1_G1.aux"
   "TP1_G1.log"
