@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1757376369.83507 "c:/Users/mayle/Documents/Udesa_/4_semestre/IE/TP_N1/TP1_G1.tex" "TP1_G1.pdf" "TP1_G1" 1757376371.19426 0
+["pdflatex"] 1757376490.48726 "c:/Users/mayle/Documents/Udesa_/4_semestre/IE/TP_N1/TP1_G1.tex" "TP1_G1.pdf" "TP1_G1" 1757376491.98907 0
   "C:/Users/mayle/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1757205631 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/mayle/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1757205763 13257342 60786e8b53ce268995f44b66ab419e50 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1233951848 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -33,7 +33,6 @@
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt12.tfm" 1136765053 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
-  "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/tfm/public/latex-fonts/lasy10.tfm" 1136765053 520 82a3d37183f34b6eb363a161dfc002c2 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb" 1247596667 32001 6aeea3afe875097b1eb0da29acd61e28 ""
@@ -49,7 +48,6 @@
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1247596666 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
-  "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy10.pfb" 1247596653 10304 e98704f815e417bc375e9a880a38e542 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1754220793 146665 9149bce97203d4030d7cbe4f4e85dfc4 ""
@@ -84,7 +82,6 @@
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/latex/base/article.cls" 1749467999 20144 b966087dda3b194755eb460d32e2ef75 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/latex/base/inputenc.sty" 1749467999 5048 0270515b828149155424600fd2d58ac5 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/latex/base/size12.clo" 1749467999 8449 8dc66c6c313c8eb2d774af83bca435dd ""
-  "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/latex/base/ulasy.fd" 1749467999 2233 b5d3114ec3e0616e658a8e7b74e810f1 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/latex/caption/caption.sty" 1696169587 56128 c2ccf1a29d78c33bc553880402e4fb9a ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/latex/caption/caption3.sty" 1696169587 72619 ee90b6612147680fd73c3b1406a74245 ""
   "C:/Users/mayle/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
@@ -120,10 +117,10 @@
   "Ejercicio1d.png" 1757204956 84451 ce36de8bc1f41ed6d592d6564a20c190 ""
   "Ejercicio2.png" 1757206896 34848 3d073e11eacdb7449724ba683801c66a ""
   "Ejercicio3.png" 1757071676 187602 97f847ef0862ecda20c40f40346d28f3 ""
-  "TP1_G1.aux" 1757376371 6849 9224cfe8c99da29dd332c8d9cbc205bc "pdflatex"
-  "TP1_G1.out" 1757376371 1399 865566b633bbb2d927a84b4ef133f06e "pdflatex"
-  "TP1_G1.tex" 1757376365 19847 868a32929f69429a4cf4f9d5ce97309b ""
-  "c:/Users/mayle/Documents/Udesa_/4_semestre/IE/TP_N1/TP1_G1.tex" 1757376365 19847 868a32929f69429a4cf4f9d5ce97309b ""
+  "TP1_G1.aux" 1757376491 6440 e8dfb03c14903a2bb58c30a6d28dc7a9 "pdflatex"
+  "TP1_G1.out" 1757376491 1170 1f76d9a67b1b08341a798c45d6859e5e "pdflatex"
+  "TP1_G1.tex" 1757376488 18297 c60070757820d32ee2729570a8665053 ""
+  "c:/Users/mayle/Documents/Udesa_/4_semestre/IE/TP_N1/TP1_G1.tex" 1757376488 18297 c60070757820d32ee2729570a8665053 ""
   (generated)
   "TP1_G1.aux"
   "TP1_G1.log"
